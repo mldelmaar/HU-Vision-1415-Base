@@ -21,4 +21,9 @@ public:
 
 	Intensity getPixel(int x, int y) const;
 	Intensity getPixel(int i) const;
+
+private:
+	Intensity* storage;
+	int storageWidth;
+	int storageHeight;
 };

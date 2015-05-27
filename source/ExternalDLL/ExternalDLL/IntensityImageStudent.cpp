@@ -12,6 +12,13 @@ IntensityImageStudent::IntensityImageStudent(const IntensityImageStudent &other)
 	copy = other;
 }
 
+IntensityImageStudent::IntensityImageStudent(const IntensityImage &other) :
+IntensityImage(other.getWidth(), other.getHeight()) {
+	//TODO: Create a copy from the other object
+	IntensityImageStudent copy;
+	copy = other;
+}
+
 IntensityImageStudent::IntensityImageStudent(const int width, const int height) : IntensityImage(width, height) {
 	//TODO: Initialize pixel storage
 	storageWidth = width;

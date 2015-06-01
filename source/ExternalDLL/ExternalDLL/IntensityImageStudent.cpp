@@ -1,4 +1,5 @@
 #include "IntensityImageStudent.h"
+#include <iostream>
 
 IntensityImageStudent::IntensityImageStudent() : IntensityImage() {
 	 //Throws error without the need to include a header
@@ -68,4 +69,12 @@ Intensity IntensityImageStudent::getPixel(int x, int y) const {
 Intensity IntensityImageStudent::getPixel(int i) const {
 	//TODO: see setPixel(int i, RGB pixel)
 	return storage[i];
+}
+
+void IntensityImageStudent::clear(Intensity pixel) {
+	std::fill_n(storage, storageWidth * storageHeight, pixel);
+}
+
+void IntensityImageStudent::clear() {
+	clear(255);
 }

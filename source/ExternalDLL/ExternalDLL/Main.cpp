@@ -15,15 +15,15 @@ bool executeSteps(DLLExecution * executor);
 
 int main(int argc, char * argv[]) {
 
-	ImageFactory::setImplementation(ImageFactory::DEFAULT);
-	//ImageFactory::setImplementation(ImageFactory::STUDENT);
+	//ImageFactory::setImplementation(ImageFactory::DEFAULT);
+	ImageFactory::setImplementation(ImageFactory::STUDENT);
 
 
     ImageIO::debugFolder = "C:\\Users\\Bianca\\Desktop\\School\\Jaar2\\BlokD\\HU-Vision-1415-Base\\debugBianca";
 	ImageIO::isInDebugMode = true; //If set to false the ImageIO class will skip any image save function calls
 
 	RGBImage * input = ImageFactory::newRGBImage();
-        if (!ImageIO::loadImage("C:\\Users\\Bianca\\Desktop\\School\\Jaar2\\BlokD\\HU-Vision-1415-Base\\rodePanda.jpg", *input)) {
+        if (!ImageIO::loadImage("C:\\Users\\Bianca\\Desktop\\School\\Jaar2\\BlokD\\HU-Vision-1415-Base\\testsets\\Set A\\TestSet Images\\child-1.png", *input)) {
 		std::cout << "Image could not be loaded!" << std::endl;
 		system("pause");
 		return 0;
@@ -31,6 +31,7 @@ int main(int argc, char * argv[]) {
 
 
 	ImageIO::saveRGBImage(*input, ImageIO::getDebugFileName("debug.png"));
+
 
 	DLLExecution * executor = new DLLExecution(input);
 
@@ -83,6 +84,13 @@ bool executeSteps(DLLExecution * executor) {
 	}
 	ImageIO::saveIntensityImage(*executor->resultPreProcessingStep4, ImageIO::getDebugFileName("Pre-processing-4.png"));
 
+	/*
+	//dbg
+	StudentLocalization localization;
+	//IntensityImage * intensPlaatje = preProcessor.stepToIntensityImage(*executor->resultPreProcessingStep4);
+	std::cout << "test\n";
+	bool hetLukte = localization.stepFindHead(*executor->resultPreProcessingStep4, executor->featuresScaled);
+	std::cout << hetLukte << '\n';*/
 
 
 	//Execute the localization steps

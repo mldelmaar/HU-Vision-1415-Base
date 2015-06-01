@@ -20,6 +20,9 @@ public:
 	void setPixel(int x, int y, Intensity pixel);
 	void setPixel(int i, Intensity pixel);
 
+	void clear();
+	void clear(Intensity pixel);
+
 	Intensity getPixel(int x, int y) const;
 	Intensity getPixel(int i) const;
 

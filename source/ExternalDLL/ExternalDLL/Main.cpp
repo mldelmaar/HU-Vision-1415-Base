@@ -20,10 +20,10 @@ int main(int argc, char * argv[]) {
 
 
     ImageIO::debugFolder = "C:\\Users\\Bianca\\Desktop\\School\\Jaar2\\BlokD\\HU-Vision-1415-Base\\debugBianca";
-	ImageIO::isInDebugMode = true; //If set to false the ImageIO class will skip any image save function calls
+	ImageIO::isInDebugMode = false; //If set to false the ImageIO class will skip any image save function calls
 
 	RGBImage * input = ImageFactory::newRGBImage();
-        if (!ImageIO::loadImage("C:\\Users\\Bianca\\Desktop\\School\\Jaar2\\BlokD\\HU-Vision-1415-Base\\testsets\\Set A\\TestSet Images\\child-1.png", *input)) {
+        if (!ImageIO::loadImage("C:\\Users\\Bianca\\Desktop\\School\\Jaar2\\BlokD\\HU-Vision-1415-Base\\testsets\\Set A\\TestSet Images\\female-2.png", *input)) {
 		std::cout << "Image could not be loaded!" << std::endl;
 		system("pause");
 		return 0;
@@ -70,7 +70,6 @@ bool executeSteps(DLLExecution * executor) {
 		std::cout << "Pre-processing step 2 failed!" << std::endl;
 		return false;
 	}
-	ImageIO::saveIntensityImage(*executor->resultPreProcessingStep2, ImageIO::getDebugFileName("Pre-processing-2.png"));
 
 	if (!executor->executePreProcessingStep3(false)) {
 		std::cout << "Pre-processing step 3 failed!" << std::endl;
@@ -84,25 +83,19 @@ bool executeSteps(DLLExecution * executor) {
 	}
 	ImageIO::saveIntensityImage(*executor->resultPreProcessingStep4, ImageIO::getDebugFileName("Pre-processing-4.png"));
 
-	/*
-	//dbg
-	StudentLocalization localization;
-	//IntensityImage * intensPlaatje = preProcessor.stepToIntensityImage(*executor->resultPreProcessingStep4);
-	std::cout << "test\n";
-	bool hetLukte = localization.stepFindHead(*executor->resultPreProcessingStep4, executor->featuresScaled);
-	std::cout << hetLukte << '\n';*/
-
 
 	//Execute the localization steps
 	if (!executor->prepareLocalization()) {
 		std::cout << "Localization preparation failed!" << std::endl;
 		return false;
 	}
-
 	if (!executor->executeLocalizationStep1(false)) {
 		std::cout << "Localization step 1 failed!" << std::endl;
 		return false;
 	}
+
+
+
 
 	if (!executor->executeLocalizationStep2(false)) {
 		std::cout << "Localization step 2 failed!" << std::endl;

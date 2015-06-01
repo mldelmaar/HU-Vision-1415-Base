@@ -1,14 +1,15 @@
 #include "StudentPreProcessing.h"
 
 
+
 IntensityImage * StudentPreProcessing::stepToIntensityImage(const RGBImage &image) const {
+
 	IntensityImageStudent * intensityImage = new IntensityImageStudent(image.getWidth(), image.getHeight());
 	int imageSize = image.getWidth() * image.getHeight();
 
 	for (int i = 0; i < imageSize; i++){
 		intensityImage->setPixel(i, image.getPixel(i).g);
 	}
-
 	return intensityImage;
 }
 

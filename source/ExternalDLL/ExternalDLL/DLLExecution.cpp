@@ -10,6 +10,7 @@
 #include "HereBeDragons.h"
 #include "ImageFactory.h"
 
+
 DLLExecution::DLLExecution(RGBImage * inputImage):
 	inputImage(inputImage),
 	resultPreProcessingStep1(0),

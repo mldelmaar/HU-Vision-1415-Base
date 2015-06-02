@@ -19,7 +19,6 @@
 #include "ImageFactory.h"
 
 bool DefaultLocalization::stepFindHead(const IntensityImage &imageIn, FeatureMap &features) const {
-
 	IntensityImage * image = ImageFactory::newIntensityImage();
 	HereBeDragons::SonnetCLI(imageIn, *image);
 	ImageIO::saveIntensityImage(*image, ImageIO::getDebugFileName("Localization-1/nose-removed.png"));

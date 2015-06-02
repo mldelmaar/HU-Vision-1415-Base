@@ -1,6 +1,5 @@
 #include "StudentLocalization.h"
 
-
 int * StudentLocalization::getHistogramX(const IntensityImage &image, int alpha, int startY) {
 	int * histogram = new int[image.getWidth()];
 
@@ -71,6 +70,8 @@ void StudentLocalization::findSidesInHistogram(int* histogram, int size, int* fi
 }
 
 bool StudentLocalization::stepFindHead(const IntensityImage &image, FeatureMap &features) const {
+
+
 	int yTop = getTopOfHead(image);
 	int alpha = 10;
 	int* histogram;
@@ -79,7 +80,7 @@ bool StudentLocalization::stepFindHead(const IntensityImage &image, FeatureMap &
 	int ySides = -1;
 
 	int count = ((image.getHeight() - yTop - 1) / alpha) + 1;
-	
+
 	for (int i = 0; i < count; i++) {
 		histogram = getHistogramX(image, alpha, yTop + i * alpha);
 		findSidesInHistogram(histogram, image.getWidth(), &left, &right);
@@ -105,20 +106,14 @@ bool StudentLocalization::stepFindHead(const IntensityImage &image, FeatureMap &
 	Feature * leftSideHead = new Feature(Feature::FEATURE_HEAD_LEFT_SIDE, *pointLeftSideHead);
 	features.putFeature(*leftSideHead);
 
-	std::cout << '(' << left << ',' << ySides << ')' << '\n';
-
 	Point2D<double> * pointRightSideHead = new Point2D<double>(right, ySides);
 	Feature * rightSideHead = new Feature(Feature::FEATURE_HEAD_RIGHT_SIDE, *pointRightSideHead);
 	features.putFeature(*rightSideHead);
 
-	std::cout << '(' << right << ',' << ySides << ')' << '\n';
-
 	Point2D<double> * pointTopOfHead = new Point2D<double>((left + right) / 2, yTop);
 	Feature * topOfHead = new Feature(Feature::FEATURE_HEAD_TOP, *pointTopOfHead);
 	features.putFeature(*topOfHead);
-
-	std::cout << '(' << ((left + right) / 2) << ',' << yTop << ')' << '\n';
-
+	
 	return true;
 }
 

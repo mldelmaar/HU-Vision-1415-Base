@@ -9,15 +9,24 @@ IntensityImageStudent::IntensityImageStudent() : IntensityImage() {
 IntensityImageStudent::IntensityImageStudent(const IntensityImageStudent &other) : 
 	IntensityImage(other.getWidth(), other.getHeight()) {
 	//TODO: Create a copy from the other object
-	IntensityImageStudent copy;
-	copy = other;
+	int size = other.getHeight() * other.getWidth();
+	this->set(other.getHeight(), other.getWidth());
+	std::cout << this->getWidth() << 'x' << this->getHeight() << '\n';
+	for (int i = 0; i < size; i++){
+		this->setPixel(i, other.getPixel(i));
+	}
 }
 
 IntensityImageStudent::IntensityImageStudent(const IntensityImage &other) :
-IntensityImage(other.getWidth(), other.getHeight()) {
+	IntensityImage(other.getWidth(), other.getHeight()) {
 	//TODO: Create a copy from the other object
-	IntensityImageStudent copy;
-	copy = other;
+	//IntensityImageStudent copy{ other.getWidth(), other.getHeight() };
+	int size = other.getHeight() * other.getWidth();
+	this->set(other.getHeight(), other.getWidth());
+	std::cout << this->getWidth() << 'x' << this->getHeight() << '\n';
+	for (int i = 0; i < size; i++){
+		this->setPixel(i, other.getPixel(i));
+	}
 }
 
 IntensityImageStudent::IntensityImageStudent(const int width, const int height) : IntensityImage(width, height) {

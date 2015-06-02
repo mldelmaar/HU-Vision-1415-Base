@@ -73,7 +73,7 @@ bool StudentLocalization::stepFindHead(const IntensityImage &image, FeatureMap &
 
 
 	int yTop = getTopOfHead(image);
-	int alpha = 10;
+	int alpha = 13;
 	int* histogram;
 	int left, right;
 	int diffFirstLast = -1, maxDiffFirstLast = -1;
@@ -93,7 +93,7 @@ bool StudentLocalization::stepFindHead(const IntensityImage &image, FeatureMap &
 			maxDiffFirstLast = diffFirstLast;
 		}
 		else {
-			ySides = yTop + i * alpha;
+			ySides = yTop + (i + 1)  * alpha;
 			break;
 		}
 	}

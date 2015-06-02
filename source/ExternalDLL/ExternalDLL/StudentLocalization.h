@@ -24,12 +24,10 @@ public:
 
 	static void findSidesInHistogram(int* histogram, int size, int* first, int * last);
 
-//	static int ** getFaceHistograms(const IntensityImage &image, int alpha);
-//	static int * getHistogramY(const IntensityImage &image);
-
-//	static IntensityImage * getHistogramXImage(const IntensityImage &image);
-//	static IntensityImage * getHistogramYImage(const IntensityImage &image);
-
 	static int getTopOfHead(const IntensityImage &image);
+
+	//Test
+	//static int * getIntensityHistogram(const IntensityImage &image);
+	//static IntensityImage * getIntensityHistogramImage(const IntensityImage &image);
 };
 

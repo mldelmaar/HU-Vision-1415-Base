@@ -30,4 +30,8 @@ public:
 
 	IntensityImage * stepEdgeDetection(const IntensityImage &image) const;
 	IntensityImage * stepThresholding(const IntensityImage &image) const;
+
+private:
+	const int MAX_WIDTH = 200;
+	const int MAX_HEIGHT = 200;
 };

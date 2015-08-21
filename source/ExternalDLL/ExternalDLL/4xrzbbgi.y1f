@@ -37,8 +37,8 @@ IntensityImage * StudentPreProcessing::stepScaleImage(const IntensityImage &imag
 	int scale = MAX_WIDTH * newWidth / image.getWidth();
 	for (int x = 0; x < newWidth; x++){
 		for (int y = 0; y < newHeight; y++){
-			//calculates the x and y position of a certain pixel after applying 
-			//the scale, based on the resize factor calculated
+			//recalculates the new position of x and y for the new image
+			//using the max 
 			intensityImage->setPixel(x, y, image.getPixel((x * MAX_WIDTH) / scale, (y * MAX_HEIGHT) / scale));
 		}
 	}

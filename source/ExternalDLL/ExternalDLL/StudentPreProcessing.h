@@ -27,8 +27,18 @@ public:
 	*/
 	IntensityImage * stepScaleImage(const IntensityImage &image) const;
 
-
+	/**
+	*	@brief detects the edges by applying a laplacian filter
+	*	@param &image from which the edges wil be detected 
+	*/
 	IntensityImage * stepEdgeDetection(const IntensityImage &image) const;
+
+	/**
+	*	@brief changes the pixels into black or white depending on whether the value of
+	*		   the pixel is under or above the threshold
+	*	@param &image where the pixels will be converted 
+	*	@return IntensityImage image with only black and white values 
+	*/
 	IntensityImage * stepThresholding(const IntensityImage &image) const;
 
 private:

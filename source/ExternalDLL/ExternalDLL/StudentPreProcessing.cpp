@@ -59,6 +59,7 @@ IntensityImage * StudentPreProcessing::stepEdgeDetection(const IntensityImage &i
 	//	-1  2  3  2 -1
 	//	-4 -1  0 -1 -4
 
+	//crop the image, two pixels at each side 
 	IntensityImageStudent * newImage = new IntensityImageStudent(image.getWidth() - 4, image.getHeight() - 4);
 	
 	for (int x = 0; x < image.getWidth() - 4; x++){
@@ -81,7 +82,7 @@ IntensityImage * StudentPreProcessing::stepEdgeDetection(const IntensityImage &i
 			sum += image.getPixel(x, y) * -4.0f;
 			*/
 
-			//5x5
+			//apply 5x5 lapacian filter
 			//rij 1
 			sum += image.getPixel(2 + x - 2, 2 + y - 2) * -4.0f;
 			sum += image.getPixel(2 + x - 1, 2 + y - 2) * -1.0f;

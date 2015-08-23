@@ -67,12 +67,14 @@ public:
 	*	@brief gets the pixel of the given x and y position
 	*   @param x position
 	*	@param y position
+	*	@return RGB of the pixel on the given position
 	*/
 	RGB getPixel(int x, int y) const;
 
 	/**
 	*	@brief gets the pixel of the given position in the storage
 	*   @param i index
+	*	@return RGB of the pixel on the given position
 	*/
 	RGB getPixel(int i) const;
 

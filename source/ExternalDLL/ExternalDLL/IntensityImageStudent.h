@@ -73,12 +73,14 @@ public:
 	*	@brief gets the intensity of the given x and y position
 	*   @param x position
 	*	@param y position
+	*	@return Intensity of the pixel on the given position
 	*/
 	Intensity getPixel(int x, int y) const;
 
 	/**  
 	*	@brief gets the intensity of the given position in the storage
 	*   @param i index
+	*	@return Intensity of the pixel on the given position
 	*/
 	Intensity getPixel(int i) const;
 

@@ -18,18 +18,21 @@ public:
 	*	@brief converts a RGB image into a intensity image using only the
 	*		   green value of the RGB pixels 
 	*	@param &image to be converted into a intensity image
+	*	@return IntensityImage image with only grey values instead of colors
 	*/
 	IntensityImage * stepToIntensityImage(const RGBImage &image) const;
 
 	/**
 	*	@brief resizes the image to an image of 200x200
 	*	@param &image to be resized into a image of 200x200
+	*	@return IntensityImage image which is resized to 200x200
 	*/
 	IntensityImage * stepScaleImage(const IntensityImage &image) const;
 
 	/**
 	*	@brief detects the edges by applying a laplacian filter
-	*	@param &image from which the edges wil be detected 
+	*	@param &image from which the edges wil be detected
+	*	@return IntensityImage image with only the edges
 	*/
 	IntensityImage * stepEdgeDetection(const IntensityImage &image) const;
 
